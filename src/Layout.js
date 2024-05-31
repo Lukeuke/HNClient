@@ -1,21 +1,21 @@
 import { Outlet, Link } from "react-router-dom";
+import React from 'react';
+import { useMediaQuery } from 'react-responsive';
+import NavbarDesktop from './components/NavbarDesktop';
+import NavbarMobile from './components/NavbarMobile';
+import HeaderMobile from './components/HeaderMobile'
 
 const Layout = () => {
+  const isDesktop = useMediaQuery({ minWidth: 768 });
+  
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/blogs">Blogs</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
-      </nav>
+
+      {isDesktop ? null : <HeaderMobile />}
+
+      <div>
+        {isDesktop ? <NavbarDesktop /> : <NavbarMobile />}
+      </div>
 
       <Outlet />
     </>
