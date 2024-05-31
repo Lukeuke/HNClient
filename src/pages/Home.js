@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import Article from '../components/ArticleListComponent';
+import Spinner from '../components/misc/Spinner'
 
 function Home() {
   const [data, setData] = useState([]);
@@ -8,7 +9,7 @@ function Home() {
   const loader = useRef(null);
 
   const cacheName = 'article-cache';
-  const cacheExpiration = 3600 * 1000; // 1 hour in milliseconds
+  const cacheExpiration = 600 * 1000; // 10 minutes in milliseconds
 
   const fetchData = async (page) => {
     const cache = await caches.open(cacheName);
@@ -87,13 +88,13 @@ function Home() {
         {data.map((post, index) => (
           <li>
             <a key={post} href={`/post/${post}`} id={post}>
-                <Article id={post} />
+              <Article id={post} />
             </a>
           </li>
         ))}
       </ol>
       <div ref={loader} style={{ height: '50px', marginBottom: '10px' }}>
-        loading...
+        <Spinner />
       </div>
     </section>
   );

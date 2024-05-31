@@ -9,7 +9,7 @@ export default function User() {
 
     useEffect(() => {
         
-        fetch(`http://hn.algolia.com/api/v1/users/${username}`)
+        fetch(`https://hn.algolia.com/api/v1/users/${username}`)
         .then(res => res.json())
         .then(data => setUser(data))
 

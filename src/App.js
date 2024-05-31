@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import Layout from './Layout'
 import NoPage from './pages/NoPage'
 import User from './pages/User'
+import Login from "./pages/Login";
+import Post from "./pages/Post";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="*" element={<NoPage />} />
           <Route path="/user/:username" element={<User />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/post/:postId" element={<Post />} />
         </Route>
       </Routes>
     </BrowserRouter>

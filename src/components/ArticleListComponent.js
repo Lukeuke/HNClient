@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaComments } from 'react-icons/fa';
+import PostSkeleton from './post/PostSkeleton'
 
 export default function ArticleListComponent(props) {
     const [article, setArticle] = useState(null);
@@ -53,11 +54,11 @@ export default function ArticleListComponent(props) {
     };
   
     if (loading) {
-      return <>loading</>;
+      return (<PostSkeleton />)
     }
   
     if (!article) {
-      return <>Article not found</>;
+      return <></>;
     }
   
     const kidsCount = Array.isArray(article.kids) ? article.kids.length : 0;
@@ -80,7 +81,7 @@ export default function ArticleListComponent(props) {
       <div className="flex items-center justify-between">
         <span className="text-xs text-gray-500">{article.score} points</span>
         
-        <a href={`/comments/${article.id}`} className="flex items-center text-xs text-gray-500 hover:text-blue-500">
+        <a href={`/post/${article.id}`} className="flex items-center text-xs text-gray-500 hover:text-blue-500">
           <FaComments size={16} className="mr-1" />
           <span>{kidsCount} comments</span>
         </a>
