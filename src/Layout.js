@@ -13,11 +13,9 @@ const Layout = () => {
 
       {isDesktop ? null : <HeaderMobile />}
 
-      <div>
-        {isDesktop ? <NavbarDesktop /> : <NavbarMobile />}
-      </div>
+      {isDesktop ? <NavbarDesktop /> : <NavbarMobile />}
 
-      <Outlet />
+      {isDesktop ? <div className="flex justify-center align-content"> <Outlet /> </div> : <Outlet />}
     </>
   )
 };

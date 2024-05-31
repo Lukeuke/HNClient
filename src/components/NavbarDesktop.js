@@ -39,7 +39,7 @@ const SearchInput = styled.input`
 const NavbarDesktop = () => {
   return (
     <NavbarContainer>
-      <Banner><a href='/'>Hacker News Client</a></Banner>
+      <Banner><a href='/' className='text-orange-500'>Hacker News Client</a></Banner>
       <NavSection>
         <NavItem><a href="/">Home</a></NavItem>
         <NavItem><a href="/newest">Newest</a></NavItem>

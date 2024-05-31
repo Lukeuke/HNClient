@@ -83,11 +83,15 @@ function Home() {
 
   return (
     <section>
-      {data.map((post, index) => (
-        <div key={post}>
-          <Article id={post} />
-        </div>
-      ))}
+      <ol>
+        {data.map((post, index) => (
+          <li>
+            <a key={post} href={`/post/${post}`} id={post}>
+                <Article id={post} />
+            </a>
+          </li>
+        ))}
+      </ol>
       <div ref={loader} style={{ height: '50px', marginBottom: '10px' }}>
         loading...
       </div>
