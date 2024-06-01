@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const NavbarContainer = styled.div`
@@ -37,17 +37,35 @@ const SearchInput = styled.input`
 `;
 
 const NavbarDesktop = () => {
+  const [search, setSearch] = useState('');
+
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    window.location.replace(`/search?q=${search}`);
+  };
+
   return (
     <NavbarContainer>
       <Banner><a href='/' className='text-orange-500'>Hacker News Client</a></Banner>
       <NavSection>
         <NavItem><a href="/">Home</a></NavItem>
         <NavItem><a href="/newest">Newest</a></NavItem>
-        <SearchInput type="text" placeholder="Search..." />
+        <form onSubmit={handleSubmit}>
+          <SearchInput
+            type="text"
+            placeholder="Search..."
+            value={search}
+            onChange={handleChange}
+          />
+        </form>
         <NavItem><a href="/login">Login</a></NavItem>
       </NavSection>
     </NavbarContainer>
   );
 };
 
-export default NavbarDesktop;
+export default NavbarDesktop

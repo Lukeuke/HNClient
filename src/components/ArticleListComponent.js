@@ -89,7 +89,7 @@ export default function ArticleListComponent(props) {
         
         <a href={`/post/${article.id}`} className="flex items-center text-xs text-gray-500 hover:text-blue-500">
           <FaComments size={16} className="mr-1" />
-          <span>{kidsCount} comments</span>
+          <span>{article.descendants} comments</span>
         </a>
       </div>
     </div>

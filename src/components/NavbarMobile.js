@@ -24,7 +24,7 @@ const NavbarMobile = () => {
     <NavbarContainer>
       <NavItem><a href="/"><FaHome size={24} /></a></NavItem>
       <NavItem><a href="/newest"><FaRegClock size={24} /></a></NavItem>
-      <NavItem><FaSearch size={24} /></NavItem>
+      <NavItem><a href='/search'><FaSearch size={24} /></a></NavItem>
       <NavItem><a href="/login"><FaUser size={24} /></a></NavItem>
     </NavbarContainer>
   );

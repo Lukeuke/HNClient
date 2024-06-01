@@ -8,6 +8,8 @@ import User from './pages/User'
 import Login from "./pages/Login";
 import Post from "./pages/Post";
 import CookieInterceptor from 'cookie-interceptor';
+import Newest from "./pages/Newest";
+import Search from "./pages/Search";
 
 function App() {
 
@@ -26,6 +28,8 @@ function App() {
           <Route path="/user/:username" element={<User />} />
           <Route path="/login" element={<Login />} />
           <Route path="/post/:postId" element={<Post />} />
+          <Route path="/newest" element={<Newest />} />
+          <Route path="/search" element={<Search />} />
         </Route>
       </Routes>
     </BrowserRouter>
