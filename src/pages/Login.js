@@ -7,17 +7,16 @@ const loginRequest = (username, password) => {
     'Access-Control-Allow-Origin': '*',
   });
 
-
-  // return fetch(`https://news.ycombinator.com/login`, {
-  //   method: 'POST',
-  //   headers,
-  //   body: `acct=${username}&pw=${password}`,
-  //   mode: 'no-cors',
-  //   credentials: 'include',
-  // })
-  //   .then(response => {
-  //     console.log(response.headers.values())
-  //   })
+  return fetch(`https://news.ycombinator.com/login`, {
+    method: 'POST',
+    headers,
+    body: `acct=${username}&pw=${password}`,
+    mode: 'no-cors',
+    credentials: 'include',
+  })
+    .then(response => {
+      console.log(document.cookie)
+    })
 };
 
 function Login() {
@@ -38,6 +37,7 @@ function Login() {
     console.log('Email:', username);
     console.log('Password:', password);
 
+    loginRequest(username, password)
   }
   
   return (

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import TimesAgo from '../helpers/TimesAgo'
 
 const CommentReplyComponent = ({ id }) => {
   const [comment, setComment] = useState(null);
@@ -79,7 +80,7 @@ const CommentReplyComponent = ({ id }) => {
         <a href={`/user/${comment.by}`} className="font-bold mr-2">
           {comment.by}
         </a>
-        <span className="text-xs text-gray-500">{new Date(comment.time * 1000).toLocaleString()}</span>
+        <span className="text-xs text-gray-500">{TimesAgo(new Date(comment.time * 1000))}</span>
       </div>
       <div className="text-gray-900" dangerouslySetInnerHTML={{ __html: comment.text }} />
       {comment.kids && comment.kids.length > 0 && (

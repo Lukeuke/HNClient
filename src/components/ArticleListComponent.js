@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { FaComments } from 'react-icons/fa';
 import PostSkeleton from './post/PostSkeleton'
+import TimesAgo from '../helpers/TimesAgo'
+import GetDomain from '../helpers/GetDomain'
+import UpvoteLink from './post/UpvoteLink'
 
 export default function ArticleListComponent(props) {
     const [article, setArticle] = useState(null);
@@ -69,12 +72,15 @@ export default function ArticleListComponent(props) {
         <a href={`/user/${article.by}`} className="font-bold mr-2">
           {article.by}
         </a>
-        <span className="text-xs text-gray-500">{new Date(article.time * 1000).toLocaleString()}</span>
+        <span className="text-xs text-gray-500">{TimesAgo(new Date(article.time * 1000))}</span>
       </div>
 
       <div className="mb-2">
         <a href={article.url} className="text-lg font-medium text-gray-900 hover:underline">
           {article.title}
+        </a>
+        <a className="text-xs"> 
+        {' '}{'('}{GetDomain(article.url)}{')'}
         </a>
       </div>
 

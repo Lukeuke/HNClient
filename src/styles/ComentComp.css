@@ -7,8 +7,9 @@ a[rel="nofollow"] {
   text-decoration: underline;
   font-size: 70%;
 }
-
-code, pre {
-  margin: 0.5em 0;
-  font-size: 70%;
+@media screen and (max-width: 480px) { 
+  code, pre {
+    margin: 0.5em 0;
+    font-size: 90%;
+  }
 }

@@ -7,8 +7,16 @@ import NoPage from './pages/NoPage'
 import User from './pages/User'
 import Login from "./pages/Login";
 import Post from "./pages/Post";
+import CookieInterceptor from 'cookie-interceptor';
 
 function App() {
+
+  CookieInterceptor.init();
+ 
+  CookieInterceptor.read.use(function (cookie) {
+    console.log('logger: ', cookie)
+  });
+
   return (
     <BrowserRouter>
       <Routes>
